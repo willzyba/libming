@@ -815,31 +815,34 @@ static void morphfillstyle(TAG tp)
 
 	alignbits(tp);
 	cod = tp->readc(tp);
-	switch(cod)
-	{	case 0:
-			if(verbose) printf("solid fill:\n");
-			break;
-		case 0x10:
-			if(verbose) printf("linear gradient fill\n");
-			break;
-		case 0x12:
-			if(verbose) printf("radial gradient fill:\n");
-			break;
-		case 0x13:
-			if(verbose) printf("focal gradient fill:\n");
-			break;
-		case 0x40:
-			if(verbose) printf("tiled bitmap fill:\n");
-			break;
-		case 0x41:
-			if(verbose) printf("clipped bitmap fill\n");
-			break;
-		case 0x42:
-			if(verbose) printf("tilled bitmap fill with hard edges\n");
-			break;
-		case 0x43:
-			if(verbose) printf("clipped bitmap fill with hard edges\n");
-			break;
+ 
+ 	if(verbose) {
+		switch(cod)
+		{	case 0:
+				printf("solid fill:\n");
+				break;
+			case 0x10:
+				printf("linear gradient fill\n");
+				break;
+			case 0x12:
+				printf("radial gradient fill:\n");
+				break;
+			case 0x13:
+				printf("focal gradient fill:\n");
+				break;
+			case 0x40:
+				printf("tiled bitmap fill:\n");
+				break;
+			case 0x41:
+				printf("clipped bitmap fill\n");
+				break;
+			case 0x42:
+				printf("tilled bitmap fill with hard edges\n");
+				break;
+			case 0x43:
+				printf("clipped bitmap fill with hard edges\n");
+				break;
+		}
 	}
 	if(cod == 0)
 	{	rgba((BITS) tp);
